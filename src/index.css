@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+  font-family: poppins, sans-serif , Rubik, Montserrat,Oswald,Roboto;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+}
+body{
+  background-color: #F6F6F6;
+ 
+}
+
+
+
+.banner-bg{
+  /* food images need  */
+background-image: url('https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908_960_720.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+.text-area h1 {
+ 
+  text-shadow: 20px 20px 20px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes moveToTop {
+  from {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  to {
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+  }
+}
+
+@keyframes moveToLeft {
+  from {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  to {
+      top: 50%;
+      left: 0%;
+      transform: translate(0, -50%);
+  }
+}
+
+
+
+@keyframes moveToRight {
+  from {
+    top: 50%;
+    left: 50%;
+    transform: translate(-0%, -50%);
+}
+to {
+    top: 50%;
+    left: 100%;
+    transform: translate(-100%, -50%);
+}
+}
+
+.icon-container:nth-child(1) {
+  animation: moveToTop 1s forwards;
+}
+
+.icon-container:nth-child(2) {
+  animation: moveToLeft 1s forwards;
+}
+
+.icon-container:nth-child(3) {
+  animation: moveToRight 1s forwards;
+}
+
+
+
+
+
+
+.icon-container-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-tooltip {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px;
+  position: absolute;
+  bottom: 100%; /* Position above the icon */
+  left: 50%;
+  margin-left: -0px; /* Center the tooltip */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.icon-container-tooltip:hover .icon-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.icon {
+  transition: transform 0.3s ease;
+}
+
+.icon-container-tooltip:hover .icon {
+  transform: scale(1.1); /* Slightly scale up the icon on hover */
+}
