@@ -53,8 +53,8 @@ const ProfileGrid = () => {
 
 
     return (
-        <div className="lg:px-0 p-0 overflow-hidden font-[Rubik] lg:mt-[-240px] mt-[-60%] z-[20] relative lg:h-auto    ">
-            <div className={`grid lg:grid-cols-6 grid-rows-10 lg:gap-4 gap-2 lg:p-10 py-10 px-2 transition-colors duration-500 ${bgClass} h-auto`}>
+        <div className="overflow-hidden font-[Rubik] lg:mt-[-240px] mt-[-60%] z-[20] relative h-[750px] lg:h-auto    ">
+            <div className={`grid lg:grid-cols-6 grid-rows-10 lg:gap-4 gap-2 lg:p-10 py-10 px-2 transition-colors duration-500 ${bgClass} `}>
 
                 <div data-aos="fade-right"
 
