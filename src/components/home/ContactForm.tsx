@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 
 const ContactForm = () => {
@@ -105,7 +105,8 @@ const ContactForm = () => {
               <div>
                 <motion.button
                   type="submit"
-                  className="w-full inline-flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-blue-900
+                  className="w-full inline-flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-lg font-medium text-white 
+                  bg-gradient-to-r from-green-400 to-blue-500
                    "
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

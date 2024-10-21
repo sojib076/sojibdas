@@ -1,9 +1,19 @@
 
 import { Link } from 'react-router-dom';
 
-const BlogCard = ({ blog }) => {
+interface Blog {
+  image: string;
+  title: string;
+  excerpt: string;
+  createdAt: string;
+  tags: string[];
+  _id: string;
+}
+
+const BlogCard = ({ blog }: { blog: Blog }) => {
+  console.log(blog);
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+    <div className="bg-gray-300 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
       <div className="relative">
         <img
           className="w-full h-56 object-cove
@@ -35,10 +45,16 @@ const BlogCard = ({ blog }) => {
             />
             <span className='font-bold'>By Sojib Das</span>
           </div>
-          <span>{blog.date}</span>
+          <span>{
+            new Date(blog.createdAt).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })
+            }</span>
         </div>
         <div className="flex flex-wrap mb-4">
-          {blog.tags.map((tag) => (
+          {blog.tags.map((tag: string) => (
             <span
               key={tag}
               className="inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full px-3 py-1 text-xs font-semibold mr-2 mb-2"
@@ -48,8 +64,12 @@ const BlogCard = ({ blog }) => {
           ))}
         </div>
         <Link
-          to={`/blog/${blog.id}`}
-          className="block text-center bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+          to={`/blog/${blog._id}`}
+          className="block text-center
+          bg-gradient-to-r from-green-400 to-blue-500
+           
+           text-white py-2 rounded-lg
+           transition-colors duration-300"
         >
           Read More
         </Link>

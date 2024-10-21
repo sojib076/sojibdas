@@ -1,18 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const BlogDetails = () => {
-    const  blog = {
-    id: 1,
-    title: "Understanding React Hooks",
-    excerpt: "An introduction to React Hooks and how to use them effectively in your projects.",
-    content: "<p>An introduction to React Hooks and how to use them effectively in your projects.</p>",
-    date: "October 21, 2024",
-    image: "https://placehold.co/800x600",
-    tags: ["React", "JavaScript", "Hooks"],
-
-
-    }
+  
+    const loderData = useLoaderData() as any
+    const blog = loderData.blogPost 
+   
   return (
     <div className="container mx-auto px-4 py-8 font-[Rajdhani]">
       {/* Blog Title and Author Info */}
@@ -25,8 +19,8 @@ const BlogDetails = () => {
             alt= "Author"
           />
           <div>
-            <p className="text-sm">By  Sojib Das </p>
-            <p className="text-sm">{blog.date}</p>
+            <p className="text-sm text-white">By  Sojib Das </p>
+            <p className="text-sm text-white">{blog.date}</p>
           </div>
         </div>
       </div>
@@ -39,15 +33,15 @@ const BlogDetails = () => {
       />
 
       {/* Blog Content */}
-      <div className="prose lg:prose-xl dark:prose-dark max-w-none text-gray-200 font-medium">
-        <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+      <div className="prose lg:prose-xl dark:prose-dark max-w-none text-gray-200 font-medium p-10">
+        <div dangerouslySetInnerHTML={{ __html: blog.description }} />
       </div>
 
       {/* Tags */}
       <div className="mt-8">
         <h2 className="text-2xl font-semibold mb-4">Tags</h2>
         <div className="flex flex-wrap">
-          {blog.tags.map((tag) => (
+          {blog.tags.map((tag:string) => (
             <span
               key={tag}
               className="inline-block bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-200 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2"
@@ -65,10 +59,10 @@ const BlogDetails = () => {
       {/* Back to Blog Link */}
       <div className="mt-8">
         <Link
-          to="/blog"
+          to="/"
           className="text-blue-600 dark:text-blue-400 hover:underline"
         >
-          &larr; Back to Blog
+          &larr; Back to Home
         </Link>
       </div>
     </div>

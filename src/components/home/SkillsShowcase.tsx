@@ -1,6 +1,9 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaNodeJs, FaReact } from 'react-icons/fa';
-import { SiMongodb, SiExpress, } from 'react-icons/si';
+
+import axios from 'axios';
+import SkillsSectionSkeleton from '../common/SkillsSectionSkeleton';
+
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -16,52 +19,52 @@ const itemVariants = {
     visible: { y: 0, opacity: 1 },
 };
 
+interface SkillItem {
+    name: string;
+    icon: string;
+}
+
+interface SkillCategory {
+    category: string;
+    items: SkillItem[];
+}
+
 const SkillShowcase = () => {
-    const skills = [
-        {
-            category: 'Frontend',
-            items: [
+    
+    const [skills, setSkills] = useState<SkillCategory[]>([]);
+    const [loading, setLoading] = useState(true);
 
+  
+    useEffect(() => {
+        const fetchSkills = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/v1/get-skill');
+                setSkills(response.data.skills);
+                setLoading(false);
+            
+                
+            } catch (error) {
+                console.error('Failed to fetch skills:', error);
+            }
+        };
 
-                { name: 'React.js', icon: <FaReact className="text-blue-400" /> },
-                { name: 'React.js', icon: <FaReact className="text-blue-400" /> },
+        fetchSkills();
+    }, []);
 
-            ],
-        },
-
-        {
-            category: 'Backend',
-            items: [
-                { name: 'Node.js', icon: <FaNodeJs className="text-green-500" /> },
-                { name: 'Express.js', icon: <SiExpress className="text-gray-600" /> },
-
-            ],
-        },
-
-        {
-            category: 'Database',
-            items: [
-                { name: 'MongoDB', icon: <SiMongodb className="text-green-600" /> },
-
-            ],
-        },
-    ];
     return (
         <div className='flex flex-col-reverse lg:flex-row  justify-around items-center py-20'>
-
-
+            {
+                loading && <SkillsSectionSkeleton />
+            }
 
             <div className='p-2'>
-
-
-                <div className="flex flex-col items-center mb-5   ">
+        
+                <div className="flex flex-col items-center mb-5">
                     {skills
                         .filter((skill) => skill.category === 'Frontend')
                         .map(({ category, items }) => (
                             <motion.div
-                                className="bg-gray-300 rounded-lg p-6 
-                  w-full max-w-md
-                  shadow-md"
+                                className="bg-gray-300 rounded-lg p-6 w-full max-w-md shadow-md"
                                 key={category}
                                 variants={containerVariants}
                                 initial="hidden"
@@ -71,25 +74,19 @@ const SkillShowcase = () => {
                                 <h2 className="text-3xl font-semibold text-center mb-6">
                                     {category}
                                 </h2>
-                                <motion.ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4
-                  
-           
-                  ">
+                                <motion.ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                                     {items.map(({ name, icon }) => (
                                         <motion.li
                                             key={name}
                                             variants={itemVariants}
-                                            viewport={{ once: true, amount: 0.5 }}
-                                            className="flex items-center bg-gray-200 py-2 px-4 
-                        rounded-md text-gray-700 cursor-pointer
-                        
-                        
-                       
-            
-                        "
+                                            className="flex items-center bg-gray-200 py-2 px-4 rounded-md text-gray-700 cursor-pointer"
                                             whileHover={{ scale: 1.03, backgroundColor: '#e5e7eb' }}
                                         >
-                                            <div className="mr-3 text-2xl">{icon}</div>
+                                            {/* Render the icon using a fallback if not found */}
+                                            <div className="mr-3 text-2xl">
+                                               <img src={icon} className="w-8 h-8" alt="icon" />
+                                              
+                                            </div>
                                             <div className="flex-1 font-medium">{name}</div>
                                         </motion.li>
                                     ))}
@@ -98,7 +95,7 @@ const SkillShowcase = () => {
                         ))}
                 </div>
 
-
+                
                 <div className="flex justify-center lg:gap-8 gap-4">
                     {skills
                         .filter(
@@ -123,10 +120,12 @@ const SkillShowcase = () => {
                                             variants={itemVariants}
                                             className="flex items-center bg-gray-200 mb-2 py-2 px-3 rounded-md text-gray-700 cursor-pointer"
                                             whileHover={{ scale: 1.03, backgroundColor: '#e5e7eb' }}
-                                            viewport={{ once: false, amount: 0.5 }}
-
                                         >
-                                            <div className="mr-3 text-xl">{icon}</div>
+                                            <div className="mr-3 text-xl">
+                                            <img src={icon} className="w-8 h-8" alt="icon" />
+
+                                                
+                                            </div>
                                             <div className="flex-1 font-medium">{name}</div>
                                         </motion.li>
                                     ))}
@@ -135,6 +134,8 @@ const SkillShowcase = () => {
                         ))}
                 </div>
             </div>
+
+         
             <motion.div
                 className="md:w-1/2 md:pr-12 mb-8 md:mb-0"
                 initial={{ opacity: 0, x: -50 }}
@@ -158,15 +159,13 @@ const SkillShowcase = () => {
                     transition={{ duration: 1, delay: 0 }}
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    I know these technologies and tools. I am a MERN Stack Developer with nearly 2 years of experience. I've been building modern, high-performing web applications that deliver real results. Looking forward to sharing my skills with you!
+                    I know these technologies and tools. I am a MERN Stack Developer with nearly 2
+                    years of experience. I've been building modern, high-performing web applications
+                    that deliver real results. Looking forward to sharing my skills with you!
                 </motion.p>
             </motion.div>
         </div>
     );
-
-
 };
 
 export default SkillShowcase;
-
-

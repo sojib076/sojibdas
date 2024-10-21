@@ -1,8 +1,9 @@
 
 
 
-import Header from '../common/Header';
+
 import { Outlet } from 'react-router';
+import Header from '../common/Header';
 
 
 const Mainlayout = () => {
@@ -10,6 +11,7 @@ const Mainlayout = () => {
         <div className=''>
             <Header  />
 
+            
             <Outlet />
         </div>
     );

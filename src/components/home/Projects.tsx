@@ -1,39 +1,36 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect, useState } from "react";
 import { FiExternalLink, FiGithub, FiEye } from "react-icons/fi";
 import computermockup from "../../assets/projectImage.png";
-import { useState } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
 import { CgRemove } from "react-icons/cg";
-
-const projectData = [
-  {
-    title: "Pet Care Tips & Story Sharing",
-    description: "A platform where users can share tips and stories about pet care.",
-    tech: ["Next.js", "Tailwind", "Express.js"],
-    moreLink: "/pet-care-tips",
-    liveLink: "https://petcareblogs.vercel.app/",
-    frontendRepo: "https://github.com/frontend-repo-link",
-    backendRepo: "https://github.com/backend-repo-link",
-    image: computermockup,
-  },
-  {
-    title: "Bike Rental Service",
-    description: "A complete bike rental system with inventory and user accounts.",
-    tech: ["React", "Node.js"],
-    moreLink: "/bike-rental",
-    liveLink: "https://bike-rental-service.netlify.app/",
-    frontendRepo: "https://github.com/frontend-repo-link",
-    backendRepo: "https://github.com/backend-repo-link",
-    image: computermockup,
-  },
-];
+import { Link } from "react-router-dom";
+import ProjectGridSkeleton from "../common/ProjectGridSkeleton";
 
 const Projects = () => {
+  const [projects, setProjects] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
-  const [selectedProject, setSelectedProject] = useState() as any;
+  const [selectedProject, setSelectedProject] = useState<any>(null);
 
-  const openModal = (project: any, e) => {
+  // Fetch project data from backend
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/v1/get-project");
+        setProjects(response.data.project);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  const openModal = (project: any, e: any) => {
     const rect = e.target.getBoundingClientRect();
     setButtonPosition({ x: rect.left, y: rect.top });
     setSelectedProject(project); // Set the selected project
@@ -53,21 +50,22 @@ const Projects = () => {
         </p>
       </div>
 
-      <h1 className="lg:text-9xl text-6xl font-[Rajdhani] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500  text-center">
-          Projects
-        </h1>
-
+      <h1 className="lg:text-9xl text-6xl font-[Rajdhani] font-extrabold tracking-tight text-transparent bg-clip-text
+       bg-gradient-to-r from-green-400 to-blue-500  text-center ">
+        Projects
+      </h1>
+      {
+        loading && <ProjectGridSkeleton />
+      } 
       <div className="grid lg:grid-cols-3 gap-5 lg:p-10 p-2">
-        {projectData.map((project, index) => (
+        {projects?.map((project: any, index: number) => (
           <div
             key={index}
-            className="relative text-center rounded-lg lg:p-4 p-3 border-white shadow-lg transition-all
-             bg-gray-900
-             border border-opacity-20 cursor-pointer"
+            className="relative text-center rounded-lg lg:p-4 p-3 border-white shadow-lg transition-all bg-gray-900 border border-opacity-20 cursor-pointer"
           >
             <div className="relative overflow-hidden lg:w-[100%] h-48 w-[100%] mx-auto">
               <img
-                src={project.image}
+                src={project.image || computermockup} // Use the project image, fallback to mockup if not available
                 alt={project.title}
                 className="absolute top-0 left-0 w-full h-auto transition-transform ease-in-out hover:translate-y-[-86%] hover:rounded-sm"
                 style={{ transitionDuration: "5000ms" }}
@@ -82,14 +80,26 @@ const Projects = () => {
 
             <hr className="lg:w-[90%] mx-auto my-2 border-[1px] border-opacity-20" />
 
-            <p className="text-gray-100 mt-2 mb-4">{project.description}</p>
+            
+            <div className="text-white">
+             
+              <div
+                dangerouslySetInnerHTML={{
+                  __html:
+                    project.description.length > 40
+                      ? `${project.description.substring(0, 40)}...`
+                      : project.description,
+                }}
+              />
+            </div>
+
 
             <div className="mt-4">
               <div className="flex space-x-2 flex-wrap justify-center">
-                {project.tech.map((tech, techIndex) => (
+                {project?.tech.map((tech: string, techIndex: number) => (
                   <span
                     key={techIndex}
-                    className=" bg-opacity-20 text-white py-1 px-3 rounded-lg font-[Rajdhani] text-sm"
+                    className="bg-opacity-20 text-white py-1 px-3 rounded-lg font-[Rajdhani] text-sm"
                   >
                     {tech}
                   </span>
@@ -97,47 +107,37 @@ const Projects = () => {
               </div>
             </div>
 
-            <div className="mt-6 flex justify-center lg:space-x-4 bg-gray-400 bg-opacity-5  backdrop-filter backdrop-blur-lg border
-             border-white border-opacity-20 rounded-md p-4">
+            <div className="mt-6 flex justify-center lg:space-x-4 bg-gray-400 bg-opacity-5 backdrop-filter backdrop-blur-lg border border-white border-opacity-20 rounded-md p-4">
               <a
                 href={project.liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center bg-transparent hover:bg-white hover:bg-opacity-20 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out
-            
-                
-                "
+                className="flex items-center bg-transparent hover:bg-white hover:bg-opacity-20 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"
               >
                 <FiExternalLink className="mr-2" />
                 Live
               </a>
 
               <button
-                className="flex items-center bg-transparen bg-white bg-opacity-20 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out
-
-               
-                
-                "
+                className="flex items-center bg-transparent bg-white bg-opacity-20 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"
                 onClick={(e) => openModal(project, e)}
               >
                 <FiGithub className="mr-2" />
                 GitHub
               </button>
 
-              <a
-                href={project.moreLink}
+              <Link
+                to={`/project/${project._id}`}
+               
                 className="flex items-center bg-transparent hover:bg-white hover:bg-opacity-20 text-white py-2 px-4 rounded-md transition duration-300 ease-in-out"
               >
                 <FiEye className="mr-2" />
                 View More
-              </a>
+              </Link>
             </div>
-
           </div>
-
         ))}
       </div>
-
 
       {isModalOpen && selectedProject && (
         <motion.div
@@ -174,11 +174,6 @@ const Projects = () => {
               {selectedProject.title}
             </h2>
 
-
-
-
-
-
             <div className="flex flex-col space-y-4">
               <a
                 href={selectedProject.frontendRepo}
@@ -202,7 +197,6 @@ const Projects = () => {
           </motion.div>
         </motion.div>
       )}
-
     </div>
   );
 };

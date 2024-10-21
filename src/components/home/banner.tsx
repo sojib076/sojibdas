@@ -6,15 +6,22 @@ const Banner = () => {
     return (
         <div className="bg-black text-white flex items-center lg:h-screen lg:px-10 px-2 lg:flex-row flex-col-reverse py-12 lg:py-0 px">
             <div className="lg:w-[70%]">
-                <h1 className="lg:text-[58px] text-[32px] font-extrabold font-[Rajdhani] "> Greetings <br /> <span className='text-green-500 font-[Rajdhani]'> I am Sojib Das </span> </h1>
+                <h1 className="lg:text-[58px] text-[32px] font-extrabold font-[Rajdhani] "> Greetings <br /> <span className='
+                text-green-500 font-[Rajdhani] '> I am Sojib Ds </span> </h1>
                
                 <p className="text-lg md:text-xl mb-8 font-[Rubik] border-l-4 border-green-600 p-2">
                 I'm a full-stack developer who builds (and sometimes designs) great digital experiences. Right now, I'm focused on creating responsive full-stack web applications.
                 </p>
-                <button className="px-6 py-2
+               <a 
+                href="https://drive.google.com/file/d/1pSi24G2tFdEIi8Cxjbo58POzl3HNpu5o/view?usp=sharing"
+                target="_blank"
+               > 
+ <button className="px-6 py-2
                  bg-green-500 text-black font-semibold rounded hover:bg-green-600 transition-all hover:scale-110 hover:text-white">
                     Download CV
                 </button>
+
+               </a>
             </div>
             <div className="lg:w-[40%] relative transform h-[50vh] lg:h-auto mb-28 lg:mb-0 ">
                 <img
