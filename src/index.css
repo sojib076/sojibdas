@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,6 +32,12 @@ background-image: url('https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2
   background-position: center;
   background-repeat: no-repeat;
 
+}
+body{
+  @apply bg-gradient-to-br from-gray-500 via-gray-800 to-gray-900
+}
+.bannerIconHover{
+  @apply transition duration-300 ease-in-out transform hover:scale-125 cursor-pointer ;
 }
 
 .text-area h1 {
@@ -130,3 +137,16 @@ to {
 .icon-container-tooltip:hover .icon {
   transform: scale(1.1); /* Slightly scale up the icon on hover */
 }
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 10s linear infinite;
+}
+

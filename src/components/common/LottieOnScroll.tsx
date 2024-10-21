@@ -17,8 +17,9 @@ const LottieOnScroll = () => {
 
       const handleScroll = () => {
         const scrollPosition = window.scrollY;
-        const maxFrames = anim.totalFrames;
-        const scrollFraction = scrollPosition / (document.body.scrollHeight - window.innerHeight);
+        const maxFrames = 190
+        ;
+        const scrollFraction = scrollPosition / (document.body.scrollHeight - window.innerHeight-100);
         const frame = Math.min(maxFrames, Math.max(0, scrollFraction * maxFrames));
         anim.goToAndStop(frame, true);
       };
@@ -38,6 +39,7 @@ const LottieOnScroll = () => {
         className='z-10 relative 
         lg:mt-20
         mt-10
+        
         lg:h-[500px] 
        
 

@@ -1,14 +1,27 @@
 
-import LottieOnScroll from '../components/common/LottieOnScroll';
+
 import Banner from '../components/home/banner';
-import Success from '../components/home/Success';
+import BlogSection from '../components/home/blogSection';
+import ContactForm from '../components/home/ContactForm';
+import Projects from '../components/home/Projects';
+import SkillsShowcase from '../components/home/SkillsShowcase';
+
+
+import SkillsSection from '../components/home/whatIdo';
 
 const Home = () => {
+
     return (
-        <div className='bg-black '>
+        <div className='font-[Rajdhani]'>
             <Banner></Banner>
-            <LottieOnScroll />
-            <Success></Success>
+            <SkillsSection></SkillsSection> 
+             <SkillsShowcase></SkillsShowcase>
+            <Projects></Projects>
+            <ContactForm></ContactForm>
+            <BlogSection></BlogSection>
+          
+            
+        
            
         </div>
     );

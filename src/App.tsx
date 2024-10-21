@@ -1,12 +1,17 @@
-import Home from "./Page/Home";
+
+import Mainlayout from "./components/Layout/Mainlayout";
+
 
 
 
 function App() {
   return (
-    <div >
-      <Home></Home>
-    </div>
+
+      <>
+        <Mainlayout/>
+      
+      </>
+    
   );
 }
 
