@@ -38,7 +38,7 @@ const SkillShowcase = () => {
     useEffect(() => {
         const fetchSkills = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/v1/get-skill');
+                const response = await axios.get('https://sojibdasbackup.vercel.app/api/v1/get-skill');
                 setSkills(response.data.skills);
                 setLoading(false);
             

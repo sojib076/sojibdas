@@ -1,4 +1,5 @@
 // src/components/Banner.tsx
+
 import sojibimg from '../../../src/assets/sojibdas.png';
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 
@@ -33,13 +34,23 @@ const Banner = () => {
                 <div className="absolute top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <div className="relative w-[300px] h-[200px] z-[-10]">
                         <div className="icon-container absolute top-0 left-1/2 transform -translate-x-1/2 bg-black rounded-full ">
+                            <a 
+                            href="https://github.com/sojib076/"
+                            target="_blank"
+                            >
                             <FaGithub className="text-white text-4xl bannerIconHover" />
+                            </a>
                         </div>
                         <div className="icon-container absolute top-1/2 left-0 transform -translate-y-1/2 bg-black rounded-full p-2">
-                            <FaLinkedin className="text-white text-4xl bannerIconHover" />
+                            <a href="https://www.linkedin.com/in/sojib-das-076das/" target="_blank">
+                                <FaLinkedin className="text-white text-4xl bannerIconHover" />
+                            </a>
                         </div>
                         <div className="icon-container absolute top-1/2 right-0 transform -translate-y-1/2 rounded-full pr-10">
-                            <FaFacebook className="text-white text-4xl bannerIconHover" />
+                           
+                           <a href="https://www.facebook.com/sojibds.sojib">
+                                <FaFacebook className="text-white text-4xl bannerIconHover" />
+                           </a>
                         </div>
                     </div>
                 </div>

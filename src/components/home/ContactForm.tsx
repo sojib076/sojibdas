@@ -24,7 +24,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className=" lg:my-40 my-20">
+    <div className=" lg:my-40 my-20 overflow-hidden">
       <div className="lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="flex flex-col md:flex-row items-start  justify-between"
@@ -73,7 +73,7 @@ const ContactForm = () => {
                   name="name"
                   id="name"
                   autoComplete="name"
-                  className=" lg:w-full w-[350px] px-5 py-3 border border-gray-300 rounded-md text-gray-900 focus:ring-blue-500 focus:border-blue-500"
+                  className=" lg:w-full w-[300px] px-5 py-3 border border-gray-300 rounded-md text-gray-900 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Your Name"
                 />
               </div>

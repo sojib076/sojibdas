@@ -34,7 +34,7 @@ const CreateProject = () => {
 
     try {
   
-      await axios.post('http://localhost:5000/api/v1/add-project', newProject, {
+      await axios.post('https://sojibdasbackup.vercel.app/api/v1/add-project', newProject, {
         headers: {
           Authorization: `Bearer ${token}`, 
         },

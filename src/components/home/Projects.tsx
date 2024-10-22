@@ -19,7 +19,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/v1/get-project");
+        const response = await axios.get("https://sojibdasbackup.vercel.app/api/v1/get-project");
         setProjects(response.data.project);
         setLoading(false);
       } catch (error) {
@@ -99,7 +99,7 @@ const Projects = () => {
                 {project?.tech.map((tech: string, techIndex: number) => (
                   <span
                     key={techIndex}
-                    className="bg-opacity-20 text-white py-1 px-3 rounded-lg font-[Rajdhani] text-sm"
+                    className="bg-opacity-20 bg-white  text-white py-1 px-3 rounded-lg font-[Rajdhani] text-sm"
                   >
                     {tech}
                   </span>

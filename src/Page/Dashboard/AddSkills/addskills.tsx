@@ -20,7 +20,7 @@ const AddSkills = () => {
 
         try {
             // Send the skill data to the backend
-            await axios.post('http://localhost:5000/api/v1/add-skill', newSkill, {
+            await axios.post('https://sojibdasbackup.vercel.app/api/v1/add-skill', newSkill, {
                 headers: {
                     Authorization: `Bearer ${token}`, // Add authorization header if needed
                 },

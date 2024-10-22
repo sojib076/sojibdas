@@ -10,8 +10,8 @@ const skillsData = [
     skills: [
       "Developing responsive user interfaces",
       "Web page development",
-      "Proficient in HTML, CSS, and JavaScript",
-      "Experienced with React.js",
+      "Proficient in  JavaScript reactjs redux tailwindcss ",
+      "Experienced with React.js nextjs and framer-motion",
       "Familiar with browser developer tools",
       "Understanding of responsive design principles",
     ],
@@ -37,7 +37,7 @@ const SkillsSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-900 text-white p-8 mb-20">
+    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-900 text-white lg:p-8 p-4 mb-20">
       {/* Left Side */}
       <aside className="md:w-1/2 md:pr-12 mb-8 md:mb-0">
         <h1 className="lg:text-9xl text-6xl font-[Rajdhani] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 lg:text-left text-center">

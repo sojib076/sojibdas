@@ -11,7 +11,7 @@ interface Blog {
 }
 
 const BlogCard = ({ blog }: { blog: Blog }) => {
-  console.log(blog);
+  console.log(blog, 'blog');
   return (
     <div className="bg-gray-300 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
       <div className="relative">

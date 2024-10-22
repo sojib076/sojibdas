@@ -1,28 +1,20 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import BlogCard from "../Blog/blogCard";
+import BlogCard from '../Blog/blogCard';
 import BlogCardSkeleton from '../Blog/BlogCardSkeleton';
 
-const BlogSection = () => {
-    interface Blog {
-        _id: string;
-        image: string;
-        title: string;
-        excerpt: string;
-        createdAt: string;
-        tags: string[];
-    }
 
-    const [blogs, setBlogs] = useState<Blog[]>([]); 
-    const [loading, setLoading] = useState(true); 
-    const [error, setError] = useState<string | null>(null); 
+const BlogSection = () => {
+    const [blogs, setBlogs] = useState([]); // Initialize state for blogs
+    const [loading, setLoading] = useState(true); // Loading state
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-    
+        // Fetch blogs from the API
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/v1/get-blog');
-                setBlogs(response.data.blogPost); 
+                const response = await axios.get('https://sojibdasbackup.vercel.app/api/v1/get-blog');
+                setBlogs(response.data.blogPost);
                 console.log(response.data.blogPost);
 
                 setLoading(false);
@@ -33,14 +25,19 @@ const BlogSection = () => {
         };
 
         fetchBlogs();
-    }, []); 
-
-    
+    }, []);
 
     if (error) {
-        return <p>{error}</p>; // Error handling
+            <h1> 
+
+                something went wrong
+
+            </h1>
+        
     }
-    console.log(blogs);
+
+
+
 
     return (
         <div className="container mx-auto px-4 py-16 my-40">
@@ -52,23 +49,24 @@ const BlogSection = () => {
                     Explore our latest news and articles to stay updated.
                 </p>
             </div>
-
-            {
-                loading && (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:p-10">
-                        {Array.from({ length: 6 }).map((_, index) => (
-                            <BlogCardSkeleton key={index} />
-                        ))}
-                    </div>
-                )
-            }
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:p-10">
+                {loading &&
+
+                    Array.from({ length: 3 }).map((_, index) => (
+                        <BlogCardSkeleton key={index} />
+                    ))
+                }
+
 
                 {
-                blogs &&
-                blogs?.map((blog) => (
-                    <BlogCard key={blog?._id} blog={blog} />
-                ))}
+
+                    blogs?.map((blog) => (
+
+
+                        <BlogCard key={blog._id} blog={blog} />
+
+
+                    ))}
             </div>
         </div>
     );

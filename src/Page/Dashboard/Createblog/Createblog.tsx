@@ -28,7 +28,7 @@ const CreateBlog = () => {
         };
         
         try {
-            axios.post('http://localhost:5000/api/v1/create-blog/', newBlogPost, {
+            axios.post('https://sojibdasbackup.vercel.app/api/v1/create-blog/', newBlogPost, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

@@ -38,13 +38,13 @@ import PrivateRoute from './PrivateRoute.tsx/PrivateRoute';
             path: "/blog/:id",
             loader: ({ params }: any) =>
               fetch(
-                `http://localhost:5000/api/v1/singlepost/${params.id}`,
+                `https://sojibdasbackup.vercel.app/api/v1/singlepost/${params.id}`,
               ).then((res) => res.json()),
             element: <BlogDetails />,
           },
           {
             path:"/project/:id",
-            loader:({params}:any)=> fetch(`http://localhost:5000/api/v1/singleproject/${params.id}`).then((res)=>res.json()),
+            loader:({params}:any)=> fetch(`https://sojibdasbackup.vercel.app/api/v1/singleproject/${params.id}`).then((res)=>res.json()),
             element:<ProjectDetails/>
           }
          
