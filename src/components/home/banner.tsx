@@ -5,7 +5,7 @@ import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Banner = () => {
     return (
-        <div className="bg-black text-white flex items-center lg:h-screen lg:px-10 px-2 lg:flex-row flex-col-reverse py-12 lg:py-0 px">
+        <div className="bg-black text-white flex items-center lg:h-screen lg:px-10 px-2 lg:flex-row flex-col-reverse py-12 lg:py-0 px"  id="home" >
             <div className="lg:w-[70%]">
                 <h1 className="lg:text-[58px] text-[32px] font-extrabold font-[Rajdhani] "> Greetings <br /> <span className='
                 text-green-500 font-[Rajdhani] '> I am Sojib Ds </span> </h1>

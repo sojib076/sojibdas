@@ -43,7 +43,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="py-0 lg:my-40">
+    <div className="py-0 lg:my-40" id="projects" >
       <div className="overflow-hidden relative">
         <p className="text-white text-center animate-marquee whitespace-nowrap font-[Rajdhani] text-3xl">
           Click on the image to view it
@@ -107,7 +107,7 @@ const Projects = () => {
               </div>
             </div>
 
-            <div className="mt-6 flex justify-center lg:space-x-4 bg-gray-400 bg-opacity-5 backdrop-filter backdrop-blur-lg border border-white border-opacity-20 rounded-md p-4">
+            <div className="mt-6 flex justify-center lg:space-x-4 bg-gray-400 bg-opacity-5 backdrop-filter backdrop-blur-lg border border-white border-opacity-20 rounded-md lg:p-4 p-1">
               <a
                 href={project.liveLink}
                 target="_blank"

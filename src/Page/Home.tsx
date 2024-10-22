@@ -1,5 +1,6 @@
 
 
+import Header from '@/components/common/Header';
 import Banner from '../components/home/banner';
 import BlogSection from '../components/home/blogSection';
 import ContactForm from '../components/home/ContactForm';
@@ -13,6 +14,7 @@ const Home = () => {
 
     return (
         <div className='font-[Rajdhani]'>
+            <Header></Header>
             <Banner></Banner>
             <SkillsSection></SkillsSection> 
              <SkillsShowcase></SkillsShowcase>

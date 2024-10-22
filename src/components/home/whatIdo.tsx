@@ -37,7 +37,7 @@ const SkillsSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-900 text-white lg:p-8 p-4 mb-20">
+    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-900 text-white lg:p-8 p-4 mb-20" id="what-i-do">
       {/* Left Side */}
       <aside className="md:w-1/2 md:pr-12 mb-8 md:mb-0">
         <h1 className="lg:text-9xl text-6xl font-[Rajdhani] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 lg:text-left text-center">
@@ -85,20 +85,22 @@ const SkillsSection = () => {
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                   className="bg-gray-800 overflow-hidden"
                 >
-                  <ul className="text-gray-300 p-4 list-disc list-inside  font-[Rajdhani]">
+                  <ul className="text-gray-300 font-semibold p-4 list-disc list-inside  font-[Rajdhani]">
                     {skillCategory.skills.map((skill, idx) => (
-                      <div key={idx} className="mt-2    ">
+                      <div key={idx} className="mt-2 ">
                         
-                        <CgCheck className="inline-block mr-2 "
-                            size={25}
-                        />
-
-                        {skill}
+                        <li className="flex ">
+                          <CgCheck 
+                            size={30}
+                          />
+                          <div className="col-span-2 w-[88%] ">{skill}</div>
+                        </li>
 
 
                       </div>
                     ))}
                   </ul>
+
                 </motion.div>
               )}
             </AnimatePresence>

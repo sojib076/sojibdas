@@ -52,7 +52,7 @@ const SkillShowcase = () => {
     }, []);
 
     return (
-        <div className='flex flex-col-reverse lg:flex-row  justify-around items-center py-20'>
+        <div className='flex flex-col-reverse lg:flex-row  justify-around items-center py-20' id='what-i-know'>
             {
                 loading && <SkillsSectionSkeleton />
             }
@@ -103,7 +103,7 @@ const SkillShowcase = () => {
                         )
                         .map(({ category, items }) => (
                             <motion.div
-                                className="bg-gray-300 rounded-lg p-6 w-full shadow-md"
+                                className="bg-gray-300 rounded-lg p-6 lg:w-full shadow-md"
                                 key={category}
                                 variants={containerVariants}
                                 initial="hidden"
@@ -114,11 +114,12 @@ const SkillShowcase = () => {
                                     {category}
                                 </h2>
                                 <motion.ul>
+
                                     {items.map(({ name, icon }) => (
                                         <motion.li
                                             key={name}
                                             variants={itemVariants}
-                                            className="flex items-center bg-gray-200 mb-2 py-2 px-3 rounded-md text-gray-700 cursor-pointer"
+                                            className="flex items-center bg-gray-200 mb-2 py-4 px-2 rounded-md text-gray-700 cursor-pointer"
                                             whileHover={{ scale: 1.03, backgroundColor: '#e5e7eb' }}
                                         >
                                             <div className="mr-3 text-xl">

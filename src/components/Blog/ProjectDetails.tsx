@@ -1,3 +1,4 @@
+import { HomeIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, useLoaderData, useLocation } from 'react-router-dom';
 
@@ -34,7 +35,19 @@ const ProjectDetails = () => {
     <div className="container mx-auto px-4 py-8 font-[Rajdhani]">
       {/* Project Title and Author Info */}
       <div className="mb-8">
+        <div className='flex  justify-between'> 
         <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
+         
+            <Link to="/" className="
+            bg-gradient-to-r from-green-400 to-blue-900 rounded-full p-2
+             text-gray-100 hover:text-white transition-all duration-300 ease-in-out
+           
+            ">
+              <HomeIcon size={40} />
+            </Link>
+         
+        </div>
+
         <div className="flex items-center text-gray-600 dark:text-gray-400">
           <img
             className="w-10 h-10 rounded-full mr-3"
@@ -74,7 +87,7 @@ const ProjectDetails = () => {
         <div dangerouslySetInnerHTML={{ __html: project.description }} />
       </div>
 
-      {/* Technologies */}
+    
       <div className="mt-8">
         <h2 className="text-2xl font-semibold mb-4">Technologies Used</h2>
         <div className="flex flex-wrap">

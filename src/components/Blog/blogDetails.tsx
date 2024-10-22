@@ -8,8 +8,8 @@ const BlogDetails = () => {
     const blog = loderData.blogPost 
    
   return (
-    <div className="container mx-auto px-4 py-8 font-[Rajdhani]">
-      {/* Blog Title and Author Info */}
+    <div className="container mx-auto px-4 py-8 font-[Rajdhani] overflow-hidden ">
+     
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
         <div className="flex items-center text-gray-600 dark:text-gray-400">
@@ -27,13 +27,13 @@ const BlogDetails = () => {
 
       {/* Featured Image */}
       <img
-        className="w-full h-96 object-cover rounded-lg mb-8"
+        className="w-full lg:h-96 object-cover rounded-lg mb-8"
         src={blog.image}
         alt={blog.title}
       />
 
       {/* Blog Content */}
-      <div className="prose lg:prose-xl dark:prose-dark max-w-none text-gray-200 font-medium p-10">
+      <div className="prose lg:prose-xl dark:prose-dark max-w-none text-gray-200 font-medium w-[90%] text-justify mx-auto">
         <div dangerouslySetInnerHTML={{ __html: blog.description }} />
       </div>
 
