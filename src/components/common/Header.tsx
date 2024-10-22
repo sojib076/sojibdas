@@ -41,11 +41,11 @@ const Header: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
 
-    // Clean up the event listener on component unmount
+  
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [activeTab]); // Include activeTab as a dependency to rerun the effect
+  }, [activeTab]); 
 
   const tabs = ['Home', 'What I do', 'What I know', 'Projects', 'Contact me' ,];
 
@@ -63,15 +63,17 @@ const Header: React.FC = () => {
   return (
     <header
       className="fixed bottom-0 left-0 right-0 bg-gray-200/90 shadow-lg p-4 rounded-t-2xl flex justify-around
-       items-center z-50 font-[Rajdhani] lg:mb-0 lg:w-[70%] mx-auto pt-8"
+       items-center z-50 font-[Rajdhani] lg:mb-0 lg:w-[70%] mx-auto pt-8 
+       
+       "
     >
-      {/* Tabs */}
+      
       {tabs.map((tab) => (
         <div
           key={tab}
           onClick={() => handleTabClick(tab)}
           className={`relative flex flex-col items-center cursor-pointer ${
-            activeTab === tab.toLowerCase().replace(/\s+/g, '-') ? 'text-blue-500' : ''
+            activeTab === tab.toLowerCase().replace(/\s+/g, '-') ? 'text-blue-900' : ''
           }`}
         >
           {activeTab === tab.toLowerCase().replace(/\s+/g, '-') && (

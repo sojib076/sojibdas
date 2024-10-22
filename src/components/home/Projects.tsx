@@ -107,7 +107,11 @@ const Projects = () => {
               </div>
             </div>
 
-            <div className="mt-6 flex justify-center lg:space-x-4 bg-gray-400 bg-opacity-5 backdrop-filter backdrop-blur-lg border border-white border-opacity-20 rounded-md lg:p-4 p-1">
+            <div className="mt-6 flex 
+            justify-center lg:space-x-4 bg-gray-400 bg-opacity-5 backdrop-filter backdrop-blur-lg border border-white border-opacity-20 rounded-md lg:p-4 p-1
+            
+            
+            ">
               <a
                 href={project.liveLink}
                 target="_blank"
