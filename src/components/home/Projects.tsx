@@ -158,10 +158,10 @@ const Projects = () => {
               scale: 0.5,
               opacity: 0,
             }}
-            animate={{ top: "5%", left: "5%", scale: 1, opacity: 1 }}
+            animate={{ top: "5%", left: "0%", scale: 1, opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-2xl shadow-2xl p-8 relative max-w-md w-full"
+            className="bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-2xl shadow-2xl p-8 relative max-w-md w-[90%] mx-auto"
             style={{ transform: "translate(-50%, -50%)" }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -170,7 +170,7 @@ const Projects = () => {
               onClick={closeModal}
               className="absolute top-4 right-4 text-gray-600 hover:text-gray-800"
             >
-              <CgRemove size={24} />
+              <CgRemove size={30} />
             </button>
 
             {/* Modal Content */}
