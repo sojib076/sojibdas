@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const ContactForm = () => {
-  // Animation variants
+  
   const containerVariant = {
     hidden: { opacity: 0 },
     visible: {
@@ -25,8 +25,8 @@ const ContactForm = () => {
   };
 
   return (
-    <div className=" lg:my-40 my-20 overflow-hidden "  >
-      <div className="lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id='contact-me'>
+    <div className=" lg:py-40 my-20 overflow-hidden "  id='contact-me'>
+      <div className="lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
         <motion.div
           className="flex flex-col md:flex-row items-center  justify-between "
           variants={containerVariant}
@@ -45,7 +45,7 @@ const ContactForm = () => {
             </h1>
 
             {/* Contact Information */}
-            <p className="text-lg text-white mb-4 ml-4  lg:text-left text-center">
+            <p className="text-lg text-white lg:mb-4 ml-4  lg:text-left text-center">
               Feel free to reach out to me via email:
             </p>
             <a
@@ -55,7 +55,7 @@ const ContactForm = () => {
               sojibdas123@gmail.com
             </a>
 
-            <p className="text-lg text-white mb-4 ml-4  lg:text-left text-center mt-5">
+            <p className="text-lg text-white lg:mb-4 mb-2 lg:ml-4  lg:text-left text-center mt-5">
               or connect with me on social media:
             </p>
 
