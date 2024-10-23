@@ -15,7 +15,7 @@ const Projects = () => {
   const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
   const [selectedProject, setSelectedProject] = useState<any>(null);
 
-  // Fetch project data from backend
+
   useEffect(() => {
     const fetchProjects = async () => {
       try {
@@ -33,17 +33,18 @@ const Projects = () => {
   const openModal = (project: any, e: any) => {
     const rect = e.target.getBoundingClientRect();
     setButtonPosition({ x: rect.left, y: rect.top });
-    setSelectedProject(project); // Set the selected project
+    setSelectedProject(project); 
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setSelectedProject(null); // Clear the selected project
+    setSelectedProject(null); 
   };
 
+
   return (
-    <div className="py-0 lg:my-40" id="projects" >
+    <div className="py-0 lg:my-32" id="projects" >
       <div className="overflow-hidden relative">
         <p className="text-white text-center animate-marquee whitespace-nowrap font-[Rajdhani] text-3xl">
           Click on the image to view it
@@ -60,6 +61,14 @@ const Projects = () => {
       <div className="grid lg:grid-cols-3 gap-5 lg:p-10 p-2">
         {projects?.map((project: any, index: number) => (
           <div
+         
+       
+           
+            
+
+          
+    
+
             key={index}
             className="relative text-center rounded-lg lg:p-4 p-3 border-white shadow-lg transition-all bg-gray-900 border border-opacity-20 cursor-pointer"
           >

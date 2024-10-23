@@ -40,7 +40,7 @@ const BlogSection = () => {
 
 
     return (
-        <div className="container mx-auto px-4 py-16 lg:my-40 mb-10" >
+        <div className="container mx-auto px-4 py-16 lg:py-0 lg:my-0 mb-10" >
             <div className="text-center mb-5">
                 <h1 className="lg:text-9xl text-6xl font-[Rajdhani] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 text-center">
                     Latest Blogs

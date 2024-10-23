@@ -25,7 +25,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className=" lg:py-40 my-20 overflow-hidden "  id='contact-me'>
+    <div className=" lg:py-40 lg:my-0 my-20 overflow-hidden "  id='contact-me'>
       <div className="lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
         <motion.div
           className="flex flex-col md:flex-row items-center  justify-between "
